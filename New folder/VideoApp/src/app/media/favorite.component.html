@@ -1,0 +1,24 @@
+
+<video [src]="Currentvideo" controls autoplay width="400" height="250"></video>
+<div class="container">
+  <table class="table table-dark">
+      
+    <thead>
+      <th>Id</th>
+      <td>name</td>
+      <td>Category</td>
+      <td>VideoPath</td>
+    
+    </thead>
+    <tbody>
+      <tr *ngFor = "let f of Favorites">
+        <td>{{f.id}}</td>
+        <td>{{f.name}}</td>
+        <td>{{f.category}}</td>
+        <td>{{f.path}}</td>
+        <td><button (click)="VideoPlay(f)" class="btn btn-outline-light btn-block"> Play </button> </td>
+     
+      </tr>
+    </tbody>
+  </table>
+  </div>

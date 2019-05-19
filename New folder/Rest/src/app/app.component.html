@@ -1,0 +1,77 @@
+
+<input type="number" #id>
+<input type="button" value="Search" class="btn btn-dark"  (click) = "GetInfoById(id.value)" >
+
+
+
+
+<table class="table table-dark table-bordered table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Subject</th>
+  </tr>
+  <tr >
+    <td>{{SingleStudentInfo.Id}}</td>
+    <td>{{SingleStudentInfo.Name}}</td>
+    <td>{{SingleStudentInfo.Gender}}</td>
+    <td>{{SingleStudentInfo.Subjects}}</td>
+  </tr>
+</table>
+
+
+<table class="table table-dark table-bordered table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Subject</th>
+  </tr>
+  <tr *ngFor="let s of Students">
+    <td>{{s.Id}}</td>
+    <td>{{s.Name}}</td>
+    <td>{{s.Gender}}</td>
+    <td>{{s.Subjects}}</td>
+  </tr>
+</table>
+
+
+<br>
+<br>
+
+<h3>HTTP POST</h3>
+<p *ngIf="datasaved" ng-class="success">Record Saved</p>
+<form [formGroup]="studentForm" (ngSubmit)="onFormSubmit()">  
+    <table>
+      <tr>
+        <td>Id</td>
+        <td>
+          <input formControlName="Id">
+        </td>
+      </tr>
+      <tr>
+          <td>Name</td>
+          <td>
+            <input formControlName="Name">
+          </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+              <input formControlName="Gender">
+            </td>
+          </tr>
+          <tr>
+              <td>Subjects</td>
+              <td>
+                <input formControlName="Subjects">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button [disabled]="studentForm.invalid">Submit</button>
+              </td>
+            </tr>
+    </table>
+  </form>
